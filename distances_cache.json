@@ -1,0 +1,247 @@
+{
+  "Belvedere-Schlossgarten|Prinz Eugen-Straße 27, 1030 Wien": {
+    "Attraction": "Belvedere-Schlossgarten",
+    "Walking Distance": "N/A",
+    "Walking Time": "N/A",
+    "Transit/Bus Time": "N/A",
+    "Transit Price": "Free (Walk)"
+  },
+  "The Vienna Naschmarkt|Naschmarkt 673, 1060 Wien": {
+    "Attraction": "The Vienna Naschmarkt",
+    "Walking Distance": "2.9 km",
+    "Walking Time": "34m",
+    "Transit/Bus Time": "16m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Vienna Museum of Science & Technology|Mariahilfer Str. 212, 1140 Wien": {
+    "Attraction": "Vienna Museum of Science & Technology",
+    "Walking Distance": "6.0 km",
+    "Walking Time": "1h 12m",
+    "Transit/Bus Time": "29m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "House of Music|Seilerstätte 30, 1010 Wien": {
+    "Attraction": "House of Music",
+    "Walking Distance": "2.3 km",
+    "Walking Time": "27m",
+    "Transit/Bus Time": "14m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Natural History Museum|Burgring 7, 1010 Wien": {
+    "Attraction": "Natural History Museum",
+    "Walking Distance": "3.5 km",
+    "Walking Time": "41m",
+    "Transit/Bus Time": "18m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Vienna State Opera|Opernring 2, 1010 Wien": {
+    "Attraction": "Vienna State Opera",
+    "Walking Distance": "2.5 km",
+    "Walking Time": "29m",
+    "Transit/Bus Time": "14m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Upper Belvedere (Klimt)|Prinz Eugen-Straße 27, 1030 Wien": {
+    "Attraction": "Upper Belvedere (Klimt)",
+    "Walking Distance": "785 m",
+    "Walking Time": "9m",
+    "Transit/Bus Time": "9m (Walk recommended)",
+    "Transit Price": "Free (Walk)"
+  },
+  "Aida Cafe Vienna|Multiple locations, e.g., Singerstraße 1, 1010 Wien": {
+    "Attraction": "Aida Cafe Vienna",
+    "Walking Distance": "N/A",
+    "Walking Time": "N/A",
+    "Transit/Bus Time": "N/A",
+    "Transit Price": "N/A"
+  },
+  "Children's Museum (Schönbrunn Palace)|Schönbrunner Schloßstraße 47, 1130 Wien": {
+    "Attraction": "Children's Museum (Schönbrunn Palace)",
+    "Walking Distance": "7.6 km",
+    "Walking Time": "1h 31m",
+    "Transit/Bus Time": "35m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Prater (amusement park)|1020 Vienna": {
+    "Attraction": "Prater (amusement park)",
+    "Walking Distance": "8.4 km",
+    "Walking Time": "1h 41m",
+    "Transit/Bus Time": "38m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "ZOOM Kindermuseum|Museumsplatz 1, 1070 Wien": {
+    "Attraction": "ZOOM Kindermuseum",
+    "Walking Distance": "3.3 km",
+    "Walking Time": "39m",
+    "Transit/Bus Time": "18m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Vorgartenmarkt|Vorgartenmarkt, 1020 Wien": {
+    "Attraction": "Vorgartenmarkt",
+    "Walking Distance": "5.7 km",
+    "Walking Time": "1h 8m",
+    "Transit/Bus Time": "27m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Brunnenmarkt|Brunnengasse, 1160 Wien": {
+    "Attraction": "Brunnenmarkt",
+    "Walking Distance": "6.3 km",
+    "Walking Time": "1h 15m",
+    "Transit/Bus Time": "30m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Tichy (ice cream)|Reumannplatz 13, 1100 Wien": {
+    "Attraction": "Tichy (ice cream)",
+    "Walking Distance": "2.0 km",
+    "Walking Time": "24m",
+    "Transit/Bus Time": "13m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Pötzleinsdorfer Schlosspark|Pötzleinsdorfer Str. 63, 1180 Wien": {
+    "Attraction": "Pötzleinsdorfer Schlosspark",
+    "Walking Distance": "9.0 km",
+    "Walking Time": "1h 48m",
+    "Transit/Bus Time": "41m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "St. Stephen's Cathedral|Stephansplatz 3, 1010 Wien": {
+    "Attraction": "St. Stephen's Cathedral",
+    "Walking Distance": "5.2 km",
+    "Walking Time": "1h 2m",
+    "Transit/Bus Time": "25m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Wiener Würstelstand|Multiple locations": {
+    "Attraction": "Wiener Würstelstand",
+    "Walking Distance": "N/A",
+    "Walking Time": "N/A",
+    "Transit/Bus Time": "N/A",
+    "Transit Price": "N/A"
+  },
+  "Café Pavillon (Schönbrunn Palace Park)|Schönbrunner Schloßstraße 47, 1130 Wien": {
+    "Attraction": "Café Pavillon (Schönbrunn Palace Park)",
+    "Walking Distance": "7.6 km",
+    "Walking Time": "1h 31m",
+    "Transit/Bus Time": "35m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Klimt Villa|Feldmühlgasse 11, 1130 Wien": {
+    "Attraction": "Klimt Villa",
+    "Walking Distance": "8.5 km",
+    "Walking Time": "1h 42m",
+    "Transit/Bus Time": "39m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Kunsthistorisches Museum Wien|Maria-Theresien-Platz, 1010 Wien": {
+    "Attraction": "Kunsthistorisches Museum Wien",
+    "Walking Distance": "3.2 km",
+    "Walking Time": "37m",
+    "Transit/Bus Time": "17m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Albertina|Albertinaplatz 1, 1010 Wien": {
+    "Attraction": "Albertina",
+    "Walking Distance": "2.9 km",
+    "Walking Time": "34m",
+    "Transit/Bus Time": "16m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Wien Museum Karlsplatz|Karlsplatz 8, 1040 Wien": {
+    "Attraction": "Wien Museum Karlsplatz",
+    "Walking Distance": "2.2 km",
+    "Walking Time": "26m",
+    "Transit/Bus Time": "13m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Karlsplatz|1040 Vienna": {
+    "Attraction": "Karlsplatz",
+    "Walking Distance": "1.1 km",
+    "Walking Time": "13m",
+    "Transit/Bus Time": "13m (Walk recommended)",
+    "Transit Price": "Free (Walk)"
+  },
+  "Die Glasfabrik|Felberstraße 3, 1150 Wien": {
+    "Attraction": "Die Glasfabrik",
+    "Walking Distance": "5.1 km",
+    "Walking Time": "1h 1m",
+    "Transit/Bus Time": "25m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Mythos Mozart|Kärntner Str. 19, 1010 Wien": {
+    "Attraction": "Mythos Mozart",
+    "Walking Distance": "3.4 km",
+    "Walking Time": "40m",
+    "Transit/Bus Time": "18m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Danube Park|Arbeiterstrandbadstraße 122, 1220 Wien": {
+    "Attraction": "Danube Park",
+    "Walking Distance": "7.8 km",
+    "Walking Time": "1h 33m",
+    "Transit/Bus Time": "36m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Votivkirche Light of creation|Rooseveltplatz, 1090 Wien": {
+    "Attraction": "Votivkirche Light of creation",
+    "Walking Distance": "4.5 km",
+    "Walking Time": "53m",
+    "Transit/Bus Time": "22m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Spittelberg Neighborhood|Spittelberggasse, 1070 Wien": {
+    "Attraction": "Spittelberg Neighborhood",
+    "Walking Distance": "4.5 km",
+    "Walking Time": "53m",
+    "Transit/Bus Time": "22m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Danube Tower|Donauturmplatz 1, 1220 Wien": {
+    "Attraction": "Danube Tower",
+    "Walking Distance": "8.8 km",
+    "Walking Time": "1h 45m",
+    "Transit/Bus Time": "40m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Lainzer Tiergarten|Hermesstraße, 1130 Wien": {
+    "Attraction": "Lainzer Tiergarten",
+    "Walking Distance": "9.8 km",
+    "Walking Time": "1h 57m",
+    "Transit/Bus Time": "44m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Hermes Villa|Lainzer Tiergarten, 1130 Wien": {
+    "Attraction": "Hermes Villa",
+    "Walking Distance": "22.0 km",
+    "Walking Time": "4h 24m",
+    "Transit/Bus Time": "1h 33m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Figmuller restaurant/cafe|Bäckerstraße 6, 1010 Wien": {
+    "Attraction": "Figmuller restaurant/cafe",
+    "Walking Distance": "4.0 km",
+    "Walking Time": "47m",
+    "Transit/Bus Time": "20m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Heuriger|Grinzing, 1190 Wien": {
+    "Attraction": "Heuriger",
+    "Walking Distance": "9.6 km",
+    "Walking Time": "1h 55m",
+    "Transit/Bus Time": "43m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Gerstner Cafe|Kärntner Str. 51, 1010 Wien": {
+    "Attraction": "Gerstner Cafe",
+    "Walking Distance": "2.6 km",
+    "Walking Time": "30m",
+    "Transit/Bus Time": "15m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Schönbrunn Zoo|Maxingstraße 13b, 1130 Wien": {
+    "Attraction": "Schönbrunn Zoo",
+    "Walking Distance": "7.5 km",
+    "Walking Time": "1h 29m",
+    "Transit/Bus Time": "34m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  }
+}

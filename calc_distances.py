@@ -3,6 +3,8 @@ import json
 import urllib.request
 import urllib.parse
 from time import sleep
+import argparse
+import os
 
 # Addresses
 hotel_address = "Wiedner Gürtel 14, 1040 Wien"
@@ -70,6 +72,10 @@ def estimate_transit_time(distance_m, walking_sec):
 
 
 def main():
+    parser = argparse.ArgumentParser(description="Calculate distances to attractions.")
+    parser.add_argument('--update', action='store_true', help="Only calculate distances for new or changed attractions.")
+    args = parser.parse_args()
+
     print(f"Geocoding hotel: {hotel_address}")
     hotel_coords = geocode(hotel_address)
     if not hotel_coords:
@@ -84,20 +90,54 @@ def main():
                 continue
             attractions.append(row)
 
+    cache_file = 'distances_cache.json'
+    cache = {}
+    if args.update:
+        if os.path.exists(cache_file):
+            with open(cache_file, 'r', encoding='utf-8') as f:
+                try:
+                    cache = json.load(f)
+                except json.JSONDecodeError:
+                    pass
+        elif os.path.exists('distances.csv'):
+            print("Initializing cache from existing distances.csv...")
+            try:
+                existing_results = {}
+                with open('distances.csv', 'r', encoding='utf-8') as f:
+                    csv_reader = csv.DictReader(f)
+                    for r in csv_reader:
+                        existing_results[r['Attraction']] = r
+                for row in attractions:
+                    _name = row['Attraction']
+                    _addr = row['Address'].strip()
+                    if _name in existing_results:
+                        cache[f"{_name}|{_addr}"] = existing_results[_name]
+            except Exception as e:
+                print(f"Could not initialize cache: {e}")
+
     results = []
     
     for i, row in enumerate(attractions):
         name = row['Attraction']
         address = row['Address'].strip()
         
+        cache_key = f"{name}|{address}"
+        
         if "Multiple locations" in address or not address:
-            results.append({
+            res = {
                 'Attraction': name,
                 'Walking Distance': 'N/A',
                 'Walking Time': 'N/A',
                 'Transit/Bus Time': 'N/A',
                 'Transit Price': 'N/A'
-            })
+            }
+            results.append(res)
+            cache[cache_key] = res
+            continue
+            
+        if args.update and cache_key in cache:
+            print(f"[{i+1}/{len(attractions)}] {name} (Skipping, already calculated)")
+            results.append(cache[cache_key])
             continue
             
         print(f"[{i+1}/{len(attractions)}] {name}")
@@ -122,23 +162,30 @@ def main():
             t_time = estimate_transit_time(dist, dur)
             t_price = "€2.40 (Single Ticket)" if dist and dist > 1500 else "Free (Walk)"
             
-            results.append({
+            res = {
                 'Attraction': name,
                 'Walking Distance': w_dist,
                 'Walking Time': w_time,
                 'Transit/Bus Time': t_time,
                 'Transit Price': t_price
-            })
+            }
+            results.append(res)
+            cache[cache_key] = res
         else:
             print(f"  Could not geocode {name}")
-            results.append({
+            res = {
                 'Attraction': name,
                 'Walking Distance': 'Error geocoding',
                 'Walking Time': 'N/A',
                 'Transit/Bus Time': 'N/A',
                 'Transit Price': 'N/A'
-            })
+            }
+            results.append(res)
+            cache[cache_key] = res
             
+    with open(cache_file, 'w', encoding='utf-8') as f:
+        json.dump(cache, f, ensure_ascii=False, indent=2)
+
     with open('distances.csv', 'w', newline='', encoding='utf-8') as f:
         writer = csv.DictWriter(f, fieldnames=['Attraction', 'Walking Distance', 'Walking Time', 'Transit/Bus Time', 'Transit Price'])
         writer.writeheader()
