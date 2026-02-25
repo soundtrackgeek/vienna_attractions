@@ -35,6 +35,7 @@ def load_data():
     try:
         attractions_df = pd.read_csv("attractions_geocoded.csv")
         hotel_df = pd.read_csv("hotel_geocoded.csv")
+        hotels_raw_df = pd.read_csv("hotels.csv")
         distances_df = pd.read_csv("distances.csv")
         
         # Merge attractions with distances
@@ -100,25 +101,63 @@ def load_data():
             
         merged_df['Numeric Price'] = merged_df['Price'].apply(parse_price)
 
-        return merged_df, hotel_df
+        return merged_df, hotel_df, hotels_raw_df
     except FileNotFoundError as e:
         st.error(f"Error loading data files: {e}. Did you run geocode_data.py?")
-        return None, None
+        return None, None, None
 
-merged_df, hotel_df = load_data()
+merged_df, hotel_df, hotels_raw_df = load_data()
 
 if merged_df is not None:
+    # Work on a per-run copy so cached data does not get mutated across reruns.
+    working_df = merged_df.copy()
+
     # Sidebar Filters
     st.sidebar.header("Filters ⚙️")
     
     # Starting Point Selector
-    valid_attractions = merged_df.dropna(subset=['Latitude', 'Longitude'])['Attraction'].tolist()
-    start_options = ["🏨 Your Hotel"] + valid_attractions
+    valid_attractions = working_df.dropna(subset=['Latitude', 'Longitude'])['Attraction'].tolist()
+    valid_hotels_df = hotel_df.dropna(subset=['Latitude', 'Longitude']).copy()
+    hotel_name_source = hotels_raw_df['Name'].dropna().tolist() if hotels_raw_df is not None and 'Name' in hotels_raw_df.columns else valid_hotels_df['Name'].tolist()
+    hotel_options = [f"🏨 {name}" for name in hotel_name_source]
+    start_options = hotel_options + valid_attractions
     selected_start = st.sidebar.selectbox("Starting Point", start_options, help="Select where you are starting from.")
+
+    if hotels_raw_df is not None and not hotels_raw_df.empty:
+        missing_hotel_names = set(hotels_raw_df['Name']) - set(hotel_df['Name'])
+        if missing_hotel_names:
+            st.sidebar.info("Some hotels in hotels.csv are not geocoded yet. Run geocode_data.py to include them.")
+
+    selected_is_hotel = selected_start in hotel_options
+    selected_hotel_name = selected_start.replace("🏨 ", "", 1) if selected_is_hotel else None
+    selected_hotel_rows = valid_hotels_df[valid_hotels_df['Name'] == selected_hotel_name] if selected_is_hotel else pd.DataFrame()
+    selected_hotel_idx = selected_hotel_rows.index[0] if not selected_hotel_rows.empty else None
+    default_hotel_name = valid_hotels_df['Name'].iloc[0] if not valid_hotels_df.empty else None
+    using_precomputed_hotel_times = selected_hotel_name is not None and selected_hotel_name == default_hotel_name
+
+    if selected_is_hotel and selected_hotel_idx is None:
+        st.warning("Selected hotel is not geocoded yet, so route times and map centering are unavailable. Run geocode_data.py to enable this hotel.")
+        st.stop()
+
+    # If selected start is not the default hotel, recalculate walking-based times.
+    if selected_hotel_idx is not None and not using_precomputed_hotel_times:
+        hotel_row = valid_hotels_df.loc[selected_hotel_idx]
+        start_coords = (hotel_row['Latitude'], hotel_row['Longitude'])
+        
+        def calc_walk_time_from_hotel(row):
+            if pd.isna(row['Latitude']) or pd.isna(row['Longitude']):
+                return np.nan
+            dist_km = geodesic(start_coords, (row['Latitude'], row['Longitude'])).kilometers
+            # Approx 14 mins per km for city walking
+            return int(dist_km * 14)
+            
+        working_df['Walking Time (mins)'] = working_df.apply(calc_walk_time_from_hotel, axis=1)
+        # Transit times are only precomputed for the default hotel.
+        working_df['Transit Time (mins)'] = working_df['Walking Time (mins)']
     
     # If not hotel, recalculate distances
-    if selected_start != "🏨 Your Hotel":
-        start_row = merged_df[merged_df['Attraction'] == selected_start].iloc[0]
+    if not selected_is_hotel:
+        start_row = working_df[working_df['Attraction'] == selected_start].iloc[0]
         start_coords = (start_row['Latitude'], start_row['Longitude'])
         
         def calc_walk_time(row):
@@ -130,9 +169,9 @@ if merged_df is not None:
             # Approx 14 mins per km for city walking
             return int(dist_km * 14)
             
-        merged_df['Walking Time (mins)'] = merged_df.apply(calc_walk_time, axis=1)
+        working_df['Walking Time (mins)'] = working_df.apply(calc_walk_time, axis=1)
         # Use walking time for transit time since we don't have transit data between attractions
-        merged_df['Transit Time (mins)'] = merged_df['Walking Time (mins)']
+        working_df['Transit Time (mins)'] = working_df['Walking Time (mins)']
 
     # Filter by Time/Distance Mode
     mode_options = ["Transit / Bus", "Walking"]
@@ -140,16 +179,16 @@ if merged_df is not None:
     
     # Filter by Transit Time
     if selected_mode == "Transit / Bus":
-        # Cannot use transit if we don't start from the hotel!
-        if selected_start != "🏨 Your Hotel":
-            st.sidebar.warning("Note: Transit times are only available from the Hotel. Using approximate walking times instead.")
+        # Transit is only precomputed for the default hotel.
+        if not using_precomputed_hotel_times:
+            st.sidebar.warning("Note: Transit times are only precomputed for the default hotel. Using approximate walking times instead.")
             time_column = 'Walking Time (mins)'
         else:
             time_column = 'Transit Time (mins)'
     else:
         time_column = 'Walking Time (mins)'
         
-    max_time = int(merged_df[time_column].max())
+    max_time = int(working_df[time_column].max())
     if max_time == 0 or np.isnan(max_time): max_time = 120
     
     selected_max_time = st.sidebar.slider(
@@ -165,7 +204,7 @@ if merged_df is not None:
     selected_budget = st.sidebar.selectbox("Budget", budget_options)
     
     # Apply Filters
-    filtered_df = merged_df.copy()
+    filtered_df = working_df.copy()
     
     # Apply Time Filter 
     filtered_df = filtered_df[
@@ -207,12 +246,12 @@ if merged_df is not None:
         
         if not map_df.empty and not hotel_df.empty:
             # Center Data
-            if selected_start == "🏨 Your Hotel":
-                center_lat = hotel_df['Latitude'].iloc[0]
-                center_lon = hotel_df['Longitude'].iloc[0]
-                center_name = "🏨 " + hotel_df['Name'].iloc[0]
+            if selected_hotel_idx is not None:
+                center_lat = valid_hotels_df.loc[selected_hotel_idx, 'Latitude']
+                center_lon = valid_hotels_df.loc[selected_hotel_idx, 'Longitude']
+                center_name = "🏨 " + valid_hotels_df.loc[selected_hotel_idx, 'Name']
             else:
-                start_row = merged_df[merged_df['Attraction'] == selected_start].iloc[0]
+                start_row = working_df[working_df['Attraction'] == selected_start].iloc[0]
                 center_lat = start_row['Latitude']
                 center_lon = start_row['Longitude']
                 center_name = "📍 " + selected_start
