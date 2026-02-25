@@ -30,6 +30,47 @@ st.markdown("""
 st.title("🗺️ Vienna Attractions Planner")
 st.markdown("Plan your days in Vienna based on distance, time, and budget!")
 
+def parse_duration_minutes(t_str):
+    if pd.isna(t_str) or t_str == 'N/A':
+        return 0
+    t_str = str(t_str).lower()
+    minutes = 0
+    if 'h' in t_str:
+        parts = t_str.split('h')
+        if parts[0].strip().isdigit():
+            minutes += int(parts[0].strip()) * 60
+        if len(parts) > 1 and 'm' in parts[1]:
+            m_part = parts[1].replace('m', '').strip()
+            if m_part.isdigit():
+                minutes += int(m_part)
+    elif 'm' in t_str:
+        m_part = t_str.replace('m', '').strip()
+        if m_part.isdigit():
+            minutes += int(m_part)
+    return minutes
+
+
+def format_minutes(minutes):
+    if pd.isna(minutes):
+        return "N/A"
+    minutes = int(max(0, minutes))
+    hours = minutes // 60
+    mins = minutes % 60
+    if hours > 0:
+        return f"{hours}h {mins}m"
+    return f"{mins}m"
+
+
+def parse_price(price_str):
+    if pd.isna(price_str) or "Free" in str(price_str):
+        return 0.0
+    price_str = str(price_str)
+    match = re.search(r'€(\d+\.?\d*)', price_str)
+    if match:
+        return float(match.group(1))
+    return None
+
+
 @st.cache_data
 def load_data():
     try:
@@ -37,80 +78,17 @@ def load_data():
         hotel_df = pd.read_csv("hotel_geocoded.csv")
         hotels_raw_df = pd.read_csv("hotels.csv")
         distances_df = pd.read_csv("distances.csv")
-        
-        # Merge attractions with distances
-        merged_df = pd.merge(attractions_df, distances_df, on="Attraction", how="left")
-        
-        # Parse Transit Time (e.g., "16m", "1h 12m", "N/A") for filtering
-        def parse_time(t_str):
-            if pd.isna(t_str) or t_str == 'N/A' or 'Walk recommended' in t_str:
-                return 0 # Or fallback to walking time
-            t_str = str(t_str).lower()
-            minutes = 0
-            if 'h' in t_str:
-                parts = t_str.split('h')
-                if parts[0].strip().isdigit():
-                    minutes += int(parts[0].strip()) * 60
-                if len(parts) > 1 and 'm' in parts[1]:
-                    m_part = parts[1].replace('m', '').strip()
-                    if m_part.isdigit():
-                        minutes += int(m_part)
-            elif 'm' in t_str:
-                m_part = t_str.replace('m', '').strip()
-                if m_part.isdigit():
-                    minutes += int(m_part)
-            return minutes
-
-        merged_df['Transit Time (mins)'] = merged_df['Transit/Bus Time'].apply(parse_time)
-        
-        # Also parse walk time explicitly to use if transit time says "Walk recommended"
-        def parse_walk_time(t_str):
-            if pd.isna(t_str) or t_str == 'N/A':
-                return 0
-            t_str = str(t_str).lower()
-            minutes = 0
-            if 'h' in t_str:
-                parts = t_str.split('h')
-                if parts[0].strip().isdigit():
-                    minutes += int(parts[0].strip()) * 60
-                if len(parts) > 1 and 'm' in parts[1]:
-                    m_part = parts[1].replace('m', '').strip()
-                    if m_part.isdigit():
-                        minutes += int(m_part)
-            elif 'm' in t_str:
-                m_part = t_str.replace('m', '').strip()
-                if m_part.isdigit():
-                    minutes += int(m_part)
-            return minutes
-            
-        merged_df['Walking Time (mins)'] = merged_df['Walking Time'].apply(parse_walk_time)
-        
-        # Use walk time if transit time says 'Walk recommended'
-        merged_df.loc[merged_df['Transit/Bus Time'].str.contains('Walk recommended', na=False), 'Transit Time (mins)'] = merged_df['Walking Time (mins)']
-
-        # Try to extract numerical price for filtering (rough approximation)
-        def parse_price(price_str):
-            if pd.isna(price_str) or "Free" in str(price_str):
-                return 0.0
-            price_str = str(price_str)
-            # Find first float-like string
-            match = re.search(r'€(\d+\.?\d*)', price_str)
-            if match:
-                return float(match.group(1))
-            return None # Unknown/Variable
-            
-        merged_df['Numeric Price'] = merged_df['Price'].apply(parse_price)
-
-        return merged_df, hotel_df, hotels_raw_df
+        attractions_df['Numeric Price'] = attractions_df['Price'].apply(parse_price)
+        return attractions_df, hotel_df, hotels_raw_df, distances_df
     except FileNotFoundError as e:
         st.error(f"Error loading data files: {e}. Did you run geocode_data.py?")
-        return None, None, None
+        return None, None, None, None
 
-merged_df, hotel_df, hotels_raw_df = load_data()
+attractions_df, hotel_df, hotels_raw_df, distances_df = load_data()
 
-if merged_df is not None:
+if attractions_df is not None:
     # Work on a per-run copy so cached data does not get mutated across reruns.
-    working_df = merged_df.copy()
+    working_df = attractions_df.copy()
 
     # Sidebar Filters
     st.sidebar.header("Filters ⚙️")
@@ -132,14 +110,44 @@ if merged_df is not None:
     selected_hotel_name = selected_start.replace("🏨 ", "", 1) if selected_is_hotel else None
     selected_hotel_rows = valid_hotels_df[valid_hotels_df['Name'] == selected_hotel_name] if selected_is_hotel else pd.DataFrame()
     selected_hotel_idx = selected_hotel_rows.index[0] if not selected_hotel_rows.empty else None
-    default_hotel_name = valid_hotels_df['Name'].iloc[0] if not valid_hotels_df.empty else None
-    using_precomputed_hotel_times = selected_hotel_name is not None and selected_hotel_name == default_hotel_name
+    using_precomputed_hotel_times = False
 
     if selected_is_hotel and selected_hotel_idx is None:
         st.warning("Selected hotel is not geocoded yet, so route times and map centering are unavailable. Run geocode_data.py to enable this hotel.")
         st.stop()
 
-    # If selected start is not the default hotel, recalculate walking-based times.
+    # Initialize distance-related columns so downstream rendering is stable.
+    for col, default in [
+        ('Walking Distance', 'N/A'),
+        ('Walking Time', 'N/A'),
+        ('Transit/Bus Time', 'N/A'),
+        ('Transit Price', 'N/A'),
+    ]:
+        if col not in working_df.columns:
+            working_df[col] = default
+
+    # Load precomputed hotel distances for selected hotel when available.
+    if selected_hotel_idx is not None:
+        hotel_distances = distances_df.copy()
+        if 'Hotel' in hotel_distances.columns:
+            hotel_distances = hotel_distances[hotel_distances['Hotel'] == selected_hotel_name]
+        elif not hotel_distances.empty:
+            default_hotel_name = valid_hotels_df['Name'].iloc[0] if not valid_hotels_df.empty else None
+            if selected_hotel_name != default_hotel_name:
+                hotel_distances = hotel_distances.iloc[0:0]
+
+        if not hotel_distances.empty:
+            distance_cols = ['Attraction', 'Walking Distance', 'Walking Time', 'Transit/Bus Time', 'Transit Price']
+            working_df = working_df.drop(columns=['Walking Distance', 'Walking Time', 'Transit/Bus Time', 'Transit Price'], errors='ignore')
+            working_df = pd.merge(working_df, hotel_distances[distance_cols], on='Attraction', how='left')
+            using_precomputed_hotel_times = True
+
+            working_df['Walking Time (mins)'] = working_df['Walking Time'].apply(parse_duration_minutes)
+            working_df['Transit Time (mins)'] = working_df['Transit/Bus Time'].apply(parse_duration_minutes)
+            walk_recommended = working_df['Transit/Bus Time'].str.contains('Walk recommended', na=False)
+            working_df.loc[walk_recommended, 'Transit Time (mins)'] = working_df['Walking Time (mins)']
+
+    # If selected hotel does not have precomputed times, recalculate walking-based times.
     if selected_hotel_idx is not None and not using_precomputed_hotel_times:
         hotel_row = valid_hotels_df.loc[selected_hotel_idx]
         start_coords = (hotel_row['Latitude'], hotel_row['Longitude'])
@@ -152,8 +160,10 @@ if merged_df is not None:
             return int(dist_km * 14)
             
         working_df['Walking Time (mins)'] = working_df.apply(calc_walk_time_from_hotel, axis=1)
-        # Transit times are only precomputed for the default hotel.
         working_df['Transit Time (mins)'] = working_df['Walking Time (mins)']
+        working_df['Walking Time'] = working_df['Walking Time (mins)'].apply(format_minutes)
+        working_df['Transit/Bus Time'] = working_df['Transit Time (mins)'].apply(format_minutes)
+        working_df['Transit Price'] = "Estimated"
     
     # If not hotel, recalculate distances
     if not selected_is_hotel:
@@ -172,6 +182,9 @@ if merged_df is not None:
         working_df['Walking Time (mins)'] = working_df.apply(calc_walk_time, axis=1)
         # Use walking time for transit time since we don't have transit data between attractions
         working_df['Transit Time (mins)'] = working_df['Walking Time (mins)']
+        working_df['Walking Time'] = working_df['Walking Time (mins)'].apply(format_minutes)
+        working_df['Transit/Bus Time'] = working_df['Transit Time (mins)'].apply(format_minutes)
+        working_df['Transit Price'] = "N/A"
 
     # Filter by Time/Distance Mode
     mode_options = ["Transit / Bus", "Walking"]
@@ -179,17 +192,19 @@ if merged_df is not None:
     
     # Filter by Transit Time
     if selected_mode == "Transit / Bus":
-        # Transit is only precomputed for the default hotel.
         if not using_precomputed_hotel_times:
-            st.sidebar.warning("Note: Transit times are only precomputed for the default hotel. Using approximate walking times instead.")
+            st.sidebar.warning("Note: Transit times are not precomputed for this starting point. Using approximate walking times instead.")
             time_column = 'Walking Time (mins)'
         else:
             time_column = 'Transit Time (mins)'
     else:
         time_column = 'Walking Time (mins)'
         
-    max_time = int(working_df[time_column].max())
-    if max_time == 0 or np.isnan(max_time): max_time = 120
+    max_time_value = working_df[time_column].max()
+    if pd.isna(max_time_value) or max_time_value == 0:
+        max_time = 120
+    else:
+        max_time = int(max_time_value)
     
     selected_max_time = st.sidebar.slider(
         f"Max {selected_mode} Time (minutes)", 

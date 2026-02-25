@@ -243,5 +243,581 @@
     "Walking Time": "1h 29m",
     "Transit/Bus Time": "34m",
     "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Garner Hotel Vienna - Prinz Eugen by IHG|Belvedere-Schlossgarten|Prinz Eugen-Straße 27, 1030 Wien": {
+    "Hotel": "Garner Hotel Vienna - Prinz Eugen by IHG",
+    "Attraction": "Belvedere-Schlossgarten",
+    "Walking Distance": "785 m",
+    "Walking Time": "9m",
+    "Transit/Bus Time": "9m (Walk recommended)",
+    "Transit Price": "Free (Walk)"
+  },
+  "Garner Hotel Vienna - Prinz Eugen by IHG|The Vienna Naschmarkt|Naschmarkt 673, 1060 Wien": {
+    "Hotel": "Garner Hotel Vienna - Prinz Eugen by IHG",
+    "Attraction": "The Vienna Naschmarkt",
+    "Walking Distance": "2.9 km",
+    "Walking Time": "34m",
+    "Transit/Bus Time": "16m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Garner Hotel Vienna - Prinz Eugen by IHG|Vienna Museum of Science & Technology|Mariahilfer Str. 212, 1140 Wien": {
+    "Hotel": "Garner Hotel Vienna - Prinz Eugen by IHG",
+    "Attraction": "Vienna Museum of Science & Technology",
+    "Walking Distance": "6.0 km",
+    "Walking Time": "1h 12m",
+    "Transit/Bus Time": "29m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Garner Hotel Vienna - Prinz Eugen by IHG|House of Music|Seilerstätte 30, 1010 Wien": {
+    "Hotel": "Garner Hotel Vienna - Prinz Eugen by IHG",
+    "Attraction": "House of Music",
+    "Walking Distance": "2.3 km",
+    "Walking Time": "27m",
+    "Transit/Bus Time": "14m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Garner Hotel Vienna - Prinz Eugen by IHG|Natural History Museum|Burgring 7, 1010 Wien": {
+    "Hotel": "Garner Hotel Vienna - Prinz Eugen by IHG",
+    "Attraction": "Natural History Museum",
+    "Walking Distance": "3.5 km",
+    "Walking Time": "41m",
+    "Transit/Bus Time": "18m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Garner Hotel Vienna - Prinz Eugen by IHG|Vienna State Opera|Opernring 2, 1010 Wien": {
+    "Hotel": "Garner Hotel Vienna - Prinz Eugen by IHG",
+    "Attraction": "Vienna State Opera",
+    "Walking Distance": "2.5 km",
+    "Walking Time": "29m",
+    "Transit/Bus Time": "14m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Garner Hotel Vienna - Prinz Eugen by IHG|Upper Belvedere (Klimt)|Prinz Eugen-Straße 27, 1030 Wien": {
+    "Hotel": "Garner Hotel Vienna - Prinz Eugen by IHG",
+    "Attraction": "Upper Belvedere (Klimt)",
+    "Walking Distance": "785 m",
+    "Walking Time": "9m",
+    "Transit/Bus Time": "9m (Walk recommended)",
+    "Transit Price": "Free (Walk)"
+  },
+  "Garner Hotel Vienna - Prinz Eugen by IHG|Aida Cafe Vienna|Multiple locations, e.g., Singerstraße 1, 1010 Wien": {
+    "Hotel": "Garner Hotel Vienna - Prinz Eugen by IHG",
+    "Attraction": "Aida Cafe Vienna",
+    "Walking Distance": "N/A",
+    "Walking Time": "N/A",
+    "Transit/Bus Time": "N/A",
+    "Transit Price": "N/A"
+  },
+  "Garner Hotel Vienna - Prinz Eugen by IHG|Children's Museum (Schönbrunn Palace)|Schönbrunner Schloßstraße 47, 1130 Wien": {
+    "Hotel": "Garner Hotel Vienna - Prinz Eugen by IHG",
+    "Attraction": "Children's Museum (Schönbrunn Palace)",
+    "Walking Distance": "7.6 km",
+    "Walking Time": "1h 31m",
+    "Transit/Bus Time": "35m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Garner Hotel Vienna - Prinz Eugen by IHG|Prater (amusement park)|Riesenradplatz 2, 1020 Wien": {
+    "Hotel": "Garner Hotel Vienna - Prinz Eugen by IHG",
+    "Attraction": "Prater (amusement park)",
+    "Walking Distance": "4.9 km",
+    "Walking Time": "58m",
+    "Transit/Bus Time": "24m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Garner Hotel Vienna - Prinz Eugen by IHG|ZOOM Kindermuseum|Museumsplatz 1, 1070 Wien": {
+    "Hotel": "Garner Hotel Vienna - Prinz Eugen by IHG",
+    "Attraction": "ZOOM Kindermuseum",
+    "Walking Distance": "3.3 km",
+    "Walking Time": "39m",
+    "Transit/Bus Time": "18m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Garner Hotel Vienna - Prinz Eugen by IHG|Vorgartenmarkt|Vorgartenmarkt, 1020 Wien": {
+    "Hotel": "Garner Hotel Vienna - Prinz Eugen by IHG",
+    "Attraction": "Vorgartenmarkt",
+    "Walking Distance": "5.7 km",
+    "Walking Time": "1h 8m",
+    "Transit/Bus Time": "27m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Garner Hotel Vienna - Prinz Eugen by IHG|Brunnenmarkt|Brunnengasse, 1160 Wien": {
+    "Hotel": "Garner Hotel Vienna - Prinz Eugen by IHG",
+    "Attraction": "Brunnenmarkt",
+    "Walking Distance": "6.3 km",
+    "Walking Time": "1h 15m",
+    "Transit/Bus Time": "30m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Garner Hotel Vienna - Prinz Eugen by IHG|Tichy (ice cream)|Reumannplatz 13, 1100 Wien": {
+    "Hotel": "Garner Hotel Vienna - Prinz Eugen by IHG",
+    "Attraction": "Tichy (ice cream)",
+    "Walking Distance": "2.0 km",
+    "Walking Time": "24m",
+    "Transit/Bus Time": "13m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Garner Hotel Vienna - Prinz Eugen by IHG|Pötzleinsdorfer Schlosspark|Pötzleinsdorfer Str. 63, 1180 Wien": {
+    "Hotel": "Garner Hotel Vienna - Prinz Eugen by IHG",
+    "Attraction": "Pötzleinsdorfer Schlosspark",
+    "Walking Distance": "9.0 km",
+    "Walking Time": "1h 48m",
+    "Transit/Bus Time": "41m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Garner Hotel Vienna - Prinz Eugen by IHG|St. Stephen's Cathedral|Stephansplatz 3, 1010 Wien": {
+    "Hotel": "Garner Hotel Vienna - Prinz Eugen by IHG",
+    "Attraction": "St. Stephen's Cathedral",
+    "Walking Distance": "3.3 km",
+    "Walking Time": "39m",
+    "Transit/Bus Time": "18m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Garner Hotel Vienna - Prinz Eugen by IHG|Wiener Würstelstand|Multiple locations": {
+    "Hotel": "Garner Hotel Vienna - Prinz Eugen by IHG",
+    "Attraction": "Wiener Würstelstand",
+    "Walking Distance": "N/A",
+    "Walking Time": "N/A",
+    "Transit/Bus Time": "N/A",
+    "Transit Price": "N/A"
+  },
+  "Garner Hotel Vienna - Prinz Eugen by IHG|Café Pavillon (Schönbrunn Palace Park)|Schönbrunner Schloßstraße 47, 1130 Wien": {
+    "Hotel": "Garner Hotel Vienna - Prinz Eugen by IHG",
+    "Attraction": "Café Pavillon (Schönbrunn Palace Park)",
+    "Walking Distance": "7.6 km",
+    "Walking Time": "1h 31m",
+    "Transit/Bus Time": "35m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Garner Hotel Vienna - Prinz Eugen by IHG|Klimt Villa|Feldmühlgasse 11, 1130 Wien": {
+    "Hotel": "Garner Hotel Vienna - Prinz Eugen by IHG",
+    "Attraction": "Klimt Villa",
+    "Walking Distance": "8.5 km",
+    "Walking Time": "1h 42m",
+    "Transit/Bus Time": "39m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Garner Hotel Vienna - Prinz Eugen by IHG|Schönbrunn Zoo|Maxingstraße 13b, 1130 Wien": {
+    "Hotel": "Garner Hotel Vienna - Prinz Eugen by IHG",
+    "Attraction": "Schönbrunn Zoo",
+    "Walking Distance": "7.5 km",
+    "Walking Time": "1h 29m",
+    "Transit/Bus Time": "34m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Garner Hotel Vienna - Prinz Eugen by IHG|Kunsthistorisches Museum Wien|Maria-Theresien-Platz, 1010 Wien": {
+    "Hotel": "Garner Hotel Vienna - Prinz Eugen by IHG",
+    "Attraction": "Kunsthistorisches Museum Wien",
+    "Walking Distance": "3.2 km",
+    "Walking Time": "37m",
+    "Transit/Bus Time": "17m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Garner Hotel Vienna - Prinz Eugen by IHG|Albertina|Albertinaplatz 1, 1010 Wien": {
+    "Hotel": "Garner Hotel Vienna - Prinz Eugen by IHG",
+    "Attraction": "Albertina",
+    "Walking Distance": "2.9 km",
+    "Walking Time": "34m",
+    "Transit/Bus Time": "16m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Garner Hotel Vienna - Prinz Eugen by IHG|Wien Museum Karlsplatz|Karlsplatz 8, 1040 Wien": {
+    "Hotel": "Garner Hotel Vienna - Prinz Eugen by IHG",
+    "Attraction": "Wien Museum Karlsplatz",
+    "Walking Distance": "2.2 km",
+    "Walking Time": "26m",
+    "Transit/Bus Time": "13m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Garner Hotel Vienna - Prinz Eugen by IHG|Karlsplatz|1040 Vienna": {
+    "Hotel": "Garner Hotel Vienna - Prinz Eugen by IHG",
+    "Attraction": "Karlsplatz",
+    "Walking Distance": "1.1 km",
+    "Walking Time": "13m",
+    "Transit/Bus Time": "13m (Walk recommended)",
+    "Transit Price": "Free (Walk)"
+  },
+  "Garner Hotel Vienna - Prinz Eugen by IHG|Die Glasfabrik|Felberstraße 3, 1150 Wien": {
+    "Hotel": "Garner Hotel Vienna - Prinz Eugen by IHG",
+    "Attraction": "Die Glasfabrik",
+    "Walking Distance": "5.1 km",
+    "Walking Time": "1h 1m",
+    "Transit/Bus Time": "25m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Garner Hotel Vienna - Prinz Eugen by IHG|Mythos Mozart|Kärntner Str. 19, 1010 Wien": {
+    "Hotel": "Garner Hotel Vienna - Prinz Eugen by IHG",
+    "Attraction": "Mythos Mozart",
+    "Walking Distance": "3.4 km",
+    "Walking Time": "40m",
+    "Transit/Bus Time": "18m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Garner Hotel Vienna - Prinz Eugen by IHG|Danube Park|Arbeiterstrandbadstraße 122, 1220 Wien": {
+    "Hotel": "Garner Hotel Vienna - Prinz Eugen by IHG",
+    "Attraction": "Danube Park",
+    "Walking Distance": "7.8 km",
+    "Walking Time": "1h 33m",
+    "Transit/Bus Time": "36m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Garner Hotel Vienna - Prinz Eugen by IHG|Votivkirche Light of creation|Rooseveltplatz, 1090 Wien": {
+    "Hotel": "Garner Hotel Vienna - Prinz Eugen by IHG",
+    "Attraction": "Votivkirche Light of creation",
+    "Walking Distance": "4.5 km",
+    "Walking Time": "53m",
+    "Transit/Bus Time": "22m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Garner Hotel Vienna - Prinz Eugen by IHG|Spittelberg Neighborhood|Spittelberggasse, 1070 Wien": {
+    "Hotel": "Garner Hotel Vienna - Prinz Eugen by IHG",
+    "Attraction": "Spittelberg Neighborhood",
+    "Walking Distance": "4.0 km",
+    "Walking Time": "47m",
+    "Transit/Bus Time": "20m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Garner Hotel Vienna - Prinz Eugen by IHG|Danube Tower|Donauturmplatz 1, 1220 Wien": {
+    "Hotel": "Garner Hotel Vienna - Prinz Eugen by IHG",
+    "Attraction": "Danube Tower",
+    "Walking Distance": "8.8 km",
+    "Walking Time": "1h 45m",
+    "Transit/Bus Time": "40m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Garner Hotel Vienna - Prinz Eugen by IHG|Lainzer Tiergarten|Hermesstraße, 1130 Wien": {
+    "Hotel": "Garner Hotel Vienna - Prinz Eugen by IHG",
+    "Attraction": "Lainzer Tiergarten",
+    "Walking Distance": "9.8 km",
+    "Walking Time": "1h 57m",
+    "Transit/Bus Time": "44m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Garner Hotel Vienna - Prinz Eugen by IHG|Hermes Villa|Lainzer Tiergarten, 1130 Wien": {
+    "Hotel": "Garner Hotel Vienna - Prinz Eugen by IHG",
+    "Attraction": "Hermes Villa",
+    "Walking Distance": "10.7 km",
+    "Walking Time": "2h 8m",
+    "Transit/Bus Time": "47m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Garner Hotel Vienna - Prinz Eugen by IHG|Figmuller restaurant/cafe|Bäckerstraße 6, 1010 Wien": {
+    "Hotel": "Garner Hotel Vienna - Prinz Eugen by IHG",
+    "Attraction": "Figmuller restaurant/cafe",
+    "Walking Distance": "4.0 km",
+    "Walking Time": "47m",
+    "Transit/Bus Time": "20m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Garner Hotel Vienna - Prinz Eugen by IHG|Heuriger|Grinzing, 1190 Wien": {
+    "Hotel": "Garner Hotel Vienna - Prinz Eugen by IHG",
+    "Attraction": "Heuriger",
+    "Walking Distance": "9.6 km",
+    "Walking Time": "1h 55m",
+    "Transit/Bus Time": "43m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Garner Hotel Vienna - Prinz Eugen by IHG|Gerstner Cafe|Kärntner Str. 51, 1010 Wien": {
+    "Hotel": "Garner Hotel Vienna - Prinz Eugen by IHG",
+    "Attraction": "Gerstner Cafe",
+    "Walking Distance": "2.6 km",
+    "Walking Time": "30m",
+    "Transit/Bus Time": "15m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Garner Hotel Vienna - Prinz Eugen by IHG|Time Travel Magic Vienna History Tour|Habsburgergasse 10a, 1010 Wien": {
+    "Hotel": "Garner Hotel Vienna - Prinz Eugen by IHG",
+    "Attraction": "Time Travel Magic Vienna History Tour",
+    "Walking Distance": "3.2 km",
+    "Walking Time": "38m",
+    "Transit/Bus Time": "17m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "ibis Wien Messe|Belvedere-Schlossgarten|Prinz Eugen-Straße 27, 1030 Wien": {
+    "Hotel": "ibis Wien Messe",
+    "Attraction": "Belvedere-Schlossgarten",
+    "Walking Distance": "4.7 km",
+    "Walking Time": "55m",
+    "Transit/Bus Time": "23m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "ibis Wien Messe|The Vienna Naschmarkt|Naschmarkt 673, 1060 Wien": {
+    "Hotel": "ibis Wien Messe",
+    "Attraction": "The Vienna Naschmarkt",
+    "Walking Distance": "4.5 km",
+    "Walking Time": "53m",
+    "Transit/Bus Time": "22m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "ibis Wien Messe|Vienna Museum of Science & Technology|Mariahilfer Str. 212, 1140 Wien": {
+    "Hotel": "ibis Wien Messe",
+    "Attraction": "Vienna Museum of Science & Technology",
+    "Walking Distance": "9.2 km",
+    "Walking Time": "1h 50m",
+    "Transit/Bus Time": "42m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "ibis Wien Messe|House of Music|Seilerstätte 30, 1010 Wien": {
+    "Hotel": "ibis Wien Messe",
+    "Attraction": "House of Music",
+    "Walking Distance": "3.6 km",
+    "Walking Time": "43m",
+    "Transit/Bus Time": "19m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "ibis Wien Messe|Natural History Museum|Burgring 7, 1010 Wien": {
+    "Hotel": "ibis Wien Messe",
+    "Attraction": "Natural History Museum",
+    "Walking Distance": "4.9 km",
+    "Walking Time": "58m",
+    "Transit/Bus Time": "24m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "ibis Wien Messe|Vienna State Opera|Opernring 2, 1010 Wien": {
+    "Hotel": "ibis Wien Messe",
+    "Attraction": "Vienna State Opera",
+    "Walking Distance": "3.8 km",
+    "Walking Time": "46m",
+    "Transit/Bus Time": "20m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "ibis Wien Messe|Upper Belvedere (Klimt)|Prinz Eugen-Straße 27, 1030 Wien": {
+    "Hotel": "ibis Wien Messe",
+    "Attraction": "Upper Belvedere (Klimt)",
+    "Walking Distance": "4.7 km",
+    "Walking Time": "55m",
+    "Transit/Bus Time": "23m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "ibis Wien Messe|Aida Cafe Vienna|Multiple locations, e.g., Singerstraße 1, 1010 Wien": {
+    "Hotel": "ibis Wien Messe",
+    "Attraction": "Aida Cafe Vienna",
+    "Walking Distance": "N/A",
+    "Walking Time": "N/A",
+    "Transit/Bus Time": "N/A",
+    "Transit Price": "N/A"
+  },
+  "ibis Wien Messe|Children's Museum (Schönbrunn Palace)|Schönbrunner Schloßstraße 47, 1130 Wien": {
+    "Hotel": "ibis Wien Messe",
+    "Attraction": "Children's Museum (Schönbrunn Palace)",
+    "Walking Distance": "10.8 km",
+    "Walking Time": "2h 9m",
+    "Transit/Bus Time": "48m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "ibis Wien Messe|Prater (amusement park)|Riesenradplatz 2, 1020 Wien": {
+    "Hotel": "ibis Wien Messe",
+    "Attraction": "Prater (amusement park)",
+    "Walking Distance": "1.8 km",
+    "Walking Time": "21m",
+    "Transit/Bus Time": "12m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "ibis Wien Messe|ZOOM Kindermuseum|Museumsplatz 1, 1070 Wien": {
+    "Hotel": "ibis Wien Messe",
+    "Attraction": "ZOOM Kindermuseum",
+    "Walking Distance": "4.7 km",
+    "Walking Time": "56m",
+    "Transit/Bus Time": "23m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "ibis Wien Messe|Vorgartenmarkt|Vorgartenmarkt, 1020 Wien": {
+    "Hotel": "ibis Wien Messe",
+    "Attraction": "Vorgartenmarkt",
+    "Walking Distance": "1.3 km",
+    "Walking Time": "15m",
+    "Transit/Bus Time": "15m (Walk recommended)",
+    "Transit Price": "Free (Walk)"
+  },
+  "ibis Wien Messe|Brunnenmarkt|Brunnengasse, 1160 Wien": {
+    "Hotel": "ibis Wien Messe",
+    "Attraction": "Brunnenmarkt",
+    "Walking Distance": "7.4 km",
+    "Walking Time": "1h 29m",
+    "Transit/Bus Time": "34m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "ibis Wien Messe|Tichy (ice cream)|Reumannplatz 13, 1100 Wien": {
+    "Hotel": "ibis Wien Messe",
+    "Attraction": "Tichy (ice cream)",
+    "Walking Distance": "7.2 km",
+    "Walking Time": "1h 26m",
+    "Transit/Bus Time": "34m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "ibis Wien Messe|Pötzleinsdorfer Schlosspark|Pötzleinsdorfer Str. 63, 1180 Wien": {
+    "Hotel": "ibis Wien Messe",
+    "Attraction": "Pötzleinsdorfer Schlosspark",
+    "Walking Distance": "8.5 km",
+    "Walking Time": "1h 41m",
+    "Transit/Bus Time": "39m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "ibis Wien Messe|St. Stephen's Cathedral|Stephansplatz 3, 1010 Wien": {
+    "Hotel": "ibis Wien Messe",
+    "Attraction": "St. Stephen's Cathedral",
+    "Walking Distance": "3.4 km",
+    "Walking Time": "40m",
+    "Transit/Bus Time": "18m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "ibis Wien Messe|Wiener Würstelstand|Multiple locations": {
+    "Hotel": "ibis Wien Messe",
+    "Attraction": "Wiener Würstelstand",
+    "Walking Distance": "N/A",
+    "Walking Time": "N/A",
+    "Transit/Bus Time": "N/A",
+    "Transit Price": "N/A"
+  },
+  "ibis Wien Messe|Café Pavillon (Schönbrunn Palace Park)|Schönbrunner Schloßstraße 47, 1130 Wien": {
+    "Hotel": "ibis Wien Messe",
+    "Attraction": "Café Pavillon (Schönbrunn Palace Park)",
+    "Walking Distance": "10.8 km",
+    "Walking Time": "2h 9m",
+    "Transit/Bus Time": "48m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "ibis Wien Messe|Klimt Villa|Feldmühlgasse 11, 1130 Wien": {
+    "Hotel": "ibis Wien Messe",
+    "Attraction": "Klimt Villa",
+    "Walking Distance": "11.7 km",
+    "Walking Time": "2h 20m",
+    "Transit/Bus Time": "52m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "ibis Wien Messe|Schönbrunn Zoo|Maxingstraße 13b, 1130 Wien": {
+    "Hotel": "ibis Wien Messe",
+    "Attraction": "Schönbrunn Zoo",
+    "Walking Distance": "10.7 km",
+    "Walking Time": "2h 7m",
+    "Transit/Bus Time": "47m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "ibis Wien Messe|Kunsthistorisches Museum Wien|Maria-Theresien-Platz, 1010 Wien": {
+    "Hotel": "ibis Wien Messe",
+    "Attraction": "Kunsthistorisches Museum Wien",
+    "Walking Distance": "4.5 km",
+    "Walking Time": "53m",
+    "Transit/Bus Time": "23m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "ibis Wien Messe|Albertina|Albertinaplatz 1, 1010 Wien": {
+    "Hotel": "ibis Wien Messe",
+    "Attraction": "Albertina",
+    "Walking Distance": "4.3 km",
+    "Walking Time": "51m",
+    "Transit/Bus Time": "22m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "ibis Wien Messe|Wien Museum Karlsplatz|Karlsplatz 8, 1040 Wien": {
+    "Hotel": "ibis Wien Messe",
+    "Attraction": "Wien Museum Karlsplatz",
+    "Walking Distance": "3.9 km",
+    "Walking Time": "46m",
+    "Transit/Bus Time": "20m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "ibis Wien Messe|Karlsplatz|1040 Vienna": {
+    "Hotel": "ibis Wien Messe",
+    "Attraction": "Karlsplatz",
+    "Walking Distance": "5.3 km",
+    "Walking Time": "1h 4m",
+    "Transit/Bus Time": "26m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "ibis Wien Messe|Die Glasfabrik|Felberstraße 3, 1150 Wien": {
+    "Hotel": "ibis Wien Messe",
+    "Attraction": "Die Glasfabrik",
+    "Walking Distance": "8.3 km",
+    "Walking Time": "1h 39m",
+    "Transit/Bus Time": "38m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "ibis Wien Messe|Mythos Mozart|Kärntner Str. 19, 1010 Wien": {
+    "Hotel": "ibis Wien Messe",
+    "Attraction": "Mythos Mozart",
+    "Walking Distance": "3.5 km",
+    "Walking Time": "41m",
+    "Transit/Bus Time": "19m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "ibis Wien Messe|Danube Park|Arbeiterstrandbadstraße 122, 1220 Wien": {
+    "Hotel": "ibis Wien Messe",
+    "Attraction": "Danube Park",
+    "Walking Distance": "3.2 km",
+    "Walking Time": "37m",
+    "Transit/Bus Time": "17m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "ibis Wien Messe|Votivkirche Light of creation|Rooseveltplatz, 1090 Wien": {
+    "Hotel": "ibis Wien Messe",
+    "Attraction": "Votivkirche Light of creation",
+    "Walking Distance": "4.6 km",
+    "Walking Time": "55m",
+    "Transit/Bus Time": "23m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "ibis Wien Messe|Spittelberg Neighborhood|Spittelberggasse, 1070 Wien": {
+    "Hotel": "ibis Wien Messe",
+    "Attraction": "Spittelberg Neighborhood",
+    "Walking Distance": "5.4 km",
+    "Walking Time": "1h 5m",
+    "Transit/Bus Time": "26m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "ibis Wien Messe|Danube Tower|Donauturmplatz 1, 1220 Wien": {
+    "Hotel": "ibis Wien Messe",
+    "Attraction": "Danube Tower",
+    "Walking Distance": "3.9 km",
+    "Walking Time": "47m",
+    "Transit/Bus Time": "20m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "ibis Wien Messe|Lainzer Tiergarten|Hermesstraße, 1130 Wien": {
+    "Hotel": "ibis Wien Messe",
+    "Attraction": "Lainzer Tiergarten",
+    "Walking Distance": "14.7 km",
+    "Walking Time": "2h 55m",
+    "Transit/Bus Time": "1h 3m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "ibis Wien Messe|Hermes Villa|Lainzer Tiergarten, 1130 Wien": {
+    "Hotel": "ibis Wien Messe",
+    "Attraction": "Hermes Villa",
+    "Walking Distance": "13.9 km",
+    "Walking Time": "2h 47m",
+    "Transit/Bus Time": "1h 0m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "ibis Wien Messe|Figmuller restaurant/cafe|Bäckerstraße 6, 1010 Wien": {
+    "Hotel": "ibis Wien Messe",
+    "Attraction": "Figmuller restaurant/cafe",
+    "Walking Distance": "3.2 km",
+    "Walking Time": "37m",
+    "Transit/Bus Time": "17m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "ibis Wien Messe|Heuriger|Grinzing, 1190 Wien": {
+    "Hotel": "ibis Wien Messe",
+    "Attraction": "Heuriger",
+    "Walking Distance": "7.6 km",
+    "Walking Time": "1h 30m",
+    "Transit/Bus Time": "35m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "ibis Wien Messe|Gerstner Cafe|Kärntner Str. 51, 1010 Wien": {
+    "Hotel": "ibis Wien Messe",
+    "Attraction": "Gerstner Cafe",
+    "Walking Distance": "3.9 km",
+    "Walking Time": "47m",
+    "Transit/Bus Time": "20m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "ibis Wien Messe|Time Travel Magic Vienna History Tour|Habsburgergasse 10a, 1010 Wien": {
+    "Hotel": "ibis Wien Messe",
+    "Attraction": "Time Travel Magic Vienna History Tour",
+    "Walking Distance": "4.6 km",
+    "Walking Time": "54m",
+    "Transit/Bus Time": "23m",
+    "Transit Price": "€2.40 (Single Ticket)"
   }
 }
