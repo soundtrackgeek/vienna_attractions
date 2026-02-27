@@ -819,5 +819,37 @@
     "Walking Time": "54m",
     "Transit/Bus Time": "23m",
     "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Garner Hotel Vienna - Prinz Eugen by IHG|Retro Gaming Museum|Fritz-Grünbaum-Platz 1, 1060 Wien": {
+    "Hotel": "Garner Hotel Vienna - Prinz Eugen by IHG",
+    "Attraction": "Retro Gaming Museum",
+    "Walking Distance": "3.8 km",
+    "Walking Time": "45m",
+    "Transit/Bus Time": "20m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "Garner Hotel Vienna - Prinz Eugen by IHG|Museum of Illusion|Wallnerstraße 4, 1010 Wien": {
+    "Hotel": "Garner Hotel Vienna - Prinz Eugen by IHG",
+    "Attraction": "Museum of Illusion",
+    "Walking Distance": "4.7 km",
+    "Walking Time": "56m",
+    "Transit/Bus Time": "23m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "ibis Wien Messe|Retro Gaming Museum|Fritz-Grünbaum-Platz 1, 1060 Wien": {
+    "Hotel": "ibis Wien Messe",
+    "Attraction": "Retro Gaming Museum",
+    "Walking Distance": "5.4 km",
+    "Walking Time": "1h 4m",
+    "Transit/Bus Time": "26m",
+    "Transit Price": "€2.40 (Single Ticket)"
+  },
+  "ibis Wien Messe|Museum of Illusion|Wallnerstraße 4, 1010 Wien": {
+    "Hotel": "ibis Wien Messe",
+    "Attraction": "Museum of Illusion",
+    "Walking Distance": "4.1 km",
+    "Walking Time": "48m",
+    "Transit/Bus Time": "21m",
+    "Transit Price": "€2.40 (Single Ticket)"
   }
 }

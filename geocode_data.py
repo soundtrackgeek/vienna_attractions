@@ -12,8 +12,11 @@ def geocode_data(update=False):
 
     print("Geocoding hotels.csv...")
     try:
-        hotels_input = "hotel_geocoded.csv" if update and Path("hotel_geocoded.csv").exists() else "hotels.csv"
-        hotels_df = pd.read_csv(hotels_input)
+        hotels_df = pd.read_csv("hotels.csv")
+        if update and Path("hotel_geocoded.csv").exists():
+            geo_df = pd.read_csv("hotel_geocoded.csv")
+            if 'Latitude' in geo_df.columns and 'Longitude' in geo_df.columns:
+                hotels_df = hotels_df.merge(geo_df[['Name', 'Latitude', 'Longitude']], on='Name', how='left')
 
         if 'Latitude' not in hotels_df.columns:
             hotels_df['Latitude'] = None
@@ -29,8 +32,9 @@ def geocode_data(update=False):
         hotels_df['address_search'] = hotels_df['Address'].str.replace(", 1040 Wien", ", Vienna, Austria", regex=False)
         hotels_df['location'] = None
         hotels_df.loc[hotel_mask, 'location'] = hotels_df.loc[hotel_mask, 'address_search'].apply(geocode)
-        hotels_df.loc[hotel_mask, 'Latitude'] = hotels_df.loc[hotel_mask, 'location'].apply(lambda loc: loc.latitude if loc else None)
-        hotels_df.loc[hotel_mask, 'Longitude'] = hotels_df.loc[hotel_mask, 'location'].apply(lambda loc: loc.longitude if loc else None)
+        if hotel_mask.any():
+            hotels_df.loc[hotel_mask, 'Latitude'] = hotels_df.loc[hotel_mask, 'location'].apply(lambda loc: loc.latitude if loc is not None else float('nan')).astype(float)
+            hotels_df.loc[hotel_mask, 'Longitude'] = hotels_df.loc[hotel_mask, 'location'].apply(lambda loc: loc.longitude if loc is not None else float('nan')).astype(float)
         
         # Drop temporary columns
         hotels_df = hotels_df.drop(columns=['address_search', 'location'])
@@ -41,8 +45,11 @@ def geocode_data(update=False):
 
     print("Geocoding attractions.csv...")
     try:
-        attractions_input = "attractions_geocoded.csv" if update and Path("attractions_geocoded.csv").exists() else "attractions.csv"
-        attractions_df = pd.read_csv(attractions_input)
+        attractions_df = pd.read_csv("attractions.csv")
+        if update and Path("attractions_geocoded.csv").exists():
+            geo_df = pd.read_csv("attractions_geocoded.csv")
+            if 'Latitude' in geo_df.columns and 'Longitude' in geo_df.columns:
+                attractions_df = attractions_df.merge(geo_df[['Attraction', 'Latitude', 'Longitude']], on='Attraction', how='left')
 
         if 'Latitude' not in attractions_df.columns:
             attractions_df['Latitude'] = None
@@ -65,9 +72,9 @@ def geocode_data(update=False):
         invalid_addresses = ["Multiple locations", "N/A"]
         
         def geocode_with_fallback(addr, attraction_name):
-            if any(inv in addr for inv in invalid_addresses):
-                print(f"Skipping invalid address for {attraction_name}: {addr}")
-                return None
+            if any(inv in str(addr) for inv in invalid_addresses):
+                print(f"Invalid address for {attraction_name}: {addr}, trying attraction name '{attraction_name}'...")
+                return geocode(f"{attraction_name}, Vienna, Austria")
                 
             loc = geocode(addr)
             if loc is None:
@@ -94,8 +101,9 @@ def geocode_data(update=False):
             time.sleep(0.5)  # additional sleep to be safe
 
         attractions_df['location'] = locations
-        attractions_df.loc[attraction_mask, 'Latitude'] = attractions_df.loc[attraction_mask, 'location'].apply(lambda loc: loc.latitude if loc else None)
-        attractions_df.loc[attraction_mask, 'Longitude'] = attractions_df.loc[attraction_mask, 'location'].apply(lambda loc: loc.longitude if loc else None)
+        if attraction_mask.any():
+            attractions_df.loc[attraction_mask, 'Latitude'] = attractions_df.loc[attraction_mask, 'location'].apply(lambda loc: loc.latitude if loc is not None else float('nan')).astype(float)
+            attractions_df.loc[attraction_mask, 'Longitude'] = attractions_df.loc[attraction_mask, 'location'].apply(lambda loc: loc.longitude if loc is not None else float('nan')).astype(float)
 
         attractions_df = attractions_df.drop(columns=['address_search', 'location'])
         attractions_df.to_csv("attractions_geocoded.csv", index=False)
